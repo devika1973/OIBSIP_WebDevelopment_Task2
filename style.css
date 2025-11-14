@@ -1,0 +1,359 @@
+/* GLOBAL RESET + SCROLL SNAP */
+html, body {
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f9fafc;
+  color: #333;
+  background-image: radial-gradient(#dce3f9 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Each section full screen */
+section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 12%;
+  box-shadow: 0 0 35px rgba(0,0,0,0.08);
+  background: inherit;
+  border-radius: 10px;
+}
+
+/* Section Titles */
+section h2 {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+section h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 30px;
+  background: #1e3a8a;
+  border-radius: 4px;
+}
+
+section h2:hover {
+  color: #0c1f63;
+  transition: 0.3s ease;
+}
+
+/* Fade Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll Progress Bar */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #1e3a8a;
+  width: 0%;
+  z-index: 1000;
+}
+
+/* Scroll To Top Button */
+#topBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 13px 15px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  transition: 0.3s;
+  z-index: 1000;
+}
+#topBtn:hover {
+  background: #152257;
+}
+
+/* Banner */
+.banner {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url("images/tata1.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(10px);
+  transform: scale(1.2);
+  z-index: -1;
+}
+
+.hero {
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+}
+
+.divider {
+  width: 90px;
+  height: 3px;
+  background: white;
+  margin: 25px auto;
+}
+
+.tagline {
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* Glass Card */
+.glass-card {
+  margin: 30px auto;
+  padding: 20px;
+  width: 60%;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Quote Section */
+.quote-section {
+  flex-direction: row;
+  gap: 40px;
+  background: #fff;
+}
+
+.quote-text h2 {
+  color: #1e3a8a;
+  margin-bottom: 5px;
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+.quote-author {
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.quote-desc {
+  line-height: 1.7;
+  color: #444;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.quote-image img {
+  width: 400px;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Biography */
+.bio {
+  background: #eef2ff;
+  text-align: center;
+  padding: 80px 15%;
+}
+
+.bio p {
+  font-size: 1.15rem;
+  line-height: 2;
+  margin-bottom: 25px;
+  color: #444;
+}
+
+/* Cards Section */
+.cards {
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 60px 10%;
+}
+
+.card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 1px solid #1e3a8a;
+}
+
+.card h3 {
+  color: #1e3a8a;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+/* Timeline */
+.timeline {
+  background: #eef2ff;
+  text-align: center;
+  padding: 80px 15%;
+}
+
+.timeline ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+.timeline li {
+  margin: 18px 0;
+  font-size: 1.15rem;
+  color: #333;
+  padding-left: 20px;
+  position: relative;
+}
+
+.timeline li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #1e3a8a;
+  font-size: 1.4rem;
+}
+
+/* Gallery */
+.gallery {
+  background: white;
+  text-align: center;
+}
+
+.gallery-box {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.gallery-box figure {
+  text-align: center;
+}
+
+.gallery-box img {
+  width: 350px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+  border: 3px solid white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.gallery-box img:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+/* Testimonials */
+.testimonials {
+  background: #eef2ff;
+  text-align: center;
+  padding: 80px 15%;
+}
+
+.test-box {
+  margin: 20px auto;
+  width: 60%;
+  background: #eef2ff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.test-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+/* Legacy */
+.legacy {
+  background: white;
+  text-align: center;
+  padding: 80px 15%;
+}
+
+.legacy p {
+  font-size: 1.15rem;
+  line-height: 2;
+  color: #444;
+  margin-bottom: 25px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+footer {
+  background: #0f172a;
+  color: #aaa;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.6rem; }
+  .glass-card { width: 90%; }
+  .quote-section { flex-direction: column; text-align: center; }
+  .quote-image img { width: 250px; }
+  .gallery-box img { width: 200px; height: 260px; }
+  .test-box { width: 90%; }
+}
